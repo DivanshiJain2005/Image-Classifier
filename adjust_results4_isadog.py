@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
-# PROGRAMMER: Rakshit Agrawal
-# DATE CREATED:          31-12-2022                       
+# PROGRAMMER: Divanshi Jain
+# DATE CREATED:          05-07-2023                       
 # REVISED DATE: 
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results 
 #          dictionary to indicate whether or not the pet image label is of-a-dog, 
@@ -74,7 +74,7 @@ def adjust_results4_isadog(results_dic, dogfile):
         key = line.rstrip()
         
         if key in dognames_dic:
-            print("WARNING: Duplicate dog names found in file") #FOR WARNING USE warning module
+            print("WARNING: Duplicate dog names found in file") 
             print("Duplicate dog name: ", key)
         
         dognames_dic[line.rstrip()] = 1
