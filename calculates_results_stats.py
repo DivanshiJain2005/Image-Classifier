@@ -108,6 +108,4 @@ def calculates_results_stats(results_dic):
         results_stats_dic['pct_match'] = 0
         
 
-    # Replace None with the results_stats_dic dictionary that you created with 
-    # this function 
     return results_stats_dic
