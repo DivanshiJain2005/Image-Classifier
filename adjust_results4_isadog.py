@@ -68,31 +68,31 @@ def adjust_results4_isadog(results_dic, dogfile):
            None - results_dic is mutable data type so no return needed.
     """      
     dog_file_data = open(dogfile, 'r')
-    dognames_dic = dict() #Dictionary used because its keys are unique
+    dog_dic = dict() 
     
     for line in dog_file_data:
         key = line.rstrip()
         
-        if key in dognames_dic:
+        if key in dog_dic:
             print("WARNING: Duplicate dog names found in file") 
             print("Duplicate dog name: ", key)
         
-        dognames_dic[line.rstrip()] = 1
+        dog_dic[line.rstrip()] = 1
     
     for i in results_dic:
-        if results_dic[i][0] in dognames_dic:
+        if results_dic[i][0] in dog_dic:
             results_dic[i].append(1)
         else:
             results_dic[i].append(0)
         
         classifier_labels = results_dic[i][1].split(",")
         
-        #if results_dic[i][1] in dognames_dic: #Improvement: Use this instead
+        
         flag = 0
         for j in classifier_labels:
             j = j.strip()
             
-            if j in dognames_dic:
+            if j in dog_dic:
                 results_dic[i].append(1)
                 flag = 1
                 break 
