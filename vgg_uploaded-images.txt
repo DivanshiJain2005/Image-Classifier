@@ -7,7 +7,7 @@ Pet Image Label Dictionary has 4 key-value pairs.
 Below are 4 of them:
  1 key:                    vase_03.jpg  label:                       vase
  2 key:                  jackal_02.jpg  label:                     jackal
- 3 key:        golden_retriever_01.jpg  label:           golden retriever
+ 3 key:        golden_retriever_01 (1).jpg  label:           golden retriever
  4 key:        golden_retriever_04.jpg  label:           golden retriever
 
      MATCH:
@@ -15,7 +15,7 @@ Below are 4 of them:
                    vase_03.jpg: 
 Real:                       vase   Classifier:                           vase
 
-       golden_retriever_01.jpg: 
+       golden_retriever_01 (1).jpg: 
 Real:           golden retriever   Classifier:               golden retriever
 
  NOT A MATCH:
@@ -34,7 +34,7 @@ Real:           golden retriever   Classifier:                     pomeranian
 Real:                       vase   Classifier:                           vase  
 PetLabelDog: 0  ClassLabelDog: 0
 
-       golden_retriever_01.jpg: 
+       golden_retriever_01 (1).jpg: 
 Real:           golden retriever   Classifier:               golden retriever  
 PetLabelDog: 1  ClassLabelDog: 1
 
