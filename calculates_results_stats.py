@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/calculates_results_stats.py
 #                                                                             
-# PROGRAMMER: Rakshit Agrawal
-# DATE CREATED:              31-12-2022                    
-# REVISED DATE: 
+# PROGRAMMER: Divanshi Jain
+# DATE CREATED: 05/07/2023                    
+# REVISED DATE: 12/07/2023
 # PURPOSE: Create a function calculates_results_stats that calculates the 
 #          statistics of the results of the programrun using the classifier's model 
 #          architecture to classify the images. This function will use the 
@@ -93,18 +93,18 @@ def calculates_results_stats(results_dic):
     if results_stats_dic['n_dogs_img']>0:
         results_stats_dic['pct_correct_dogs'] = results_stats_dic['n_correct_dogs'] / results_stats_dic['n_dogs_img'] *100
         results_stats_dic['pct_correct_breed'] = results_stats_dic['n_correct_breed'] / results_stats_dic['n_dogs_img'] *100
-    else:#NO NEED OF ELSE
+    else:
         results_stats_dic['pct_correct_dogs'] = 0
         results_stats_dic['pct_correct_dogs'] = 0
         
     if results_stats_dic['n_notdogs_img']>0:
         results_stats_dic['pct_correct_notdogs'] = results_stats_dic['n_correct_notdogs'] / results_stats_dic['n_notdogs_img'] *100
-    else:#NO NEED OF ELSE
+    else:
         results_stats_dic['pct_correct_notdogs'] = 0
     
     if results_stats_dic['n_images']>0:
         results_stats_dic['pct_match'] = results_stats_dic['n_match'] / results_stats_dic['n_images'] *100
-    else:#NO NEED OF ELSE
+    else:
         results_stats_dic['pct_match'] = 0
         
 
