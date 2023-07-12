@@ -172,8 +172,8 @@ def check_classifying_labels_as_dogs(results_dic):
         # Match
     
         # Sets counters for matches & NOT-matches
-        n_match = 0
-        n_notmatch = 0
+        match = 0
+        notmatch = 0
     
         # Prints all Matches first
         print("\n     MATCH:")
@@ -183,7 +183,7 @@ def check_classifying_labels_as_dogs(results_dic):
             if results_dic[key][2] == 1:
 
                 # Increments Match counter
-                n_match += 1
+                match += 1
                 print("\n{:>30}: \nReal: {:>26}   Classifier: {:>30}  \nPetLabelDog: {:1d}  ClassLabelDog: {:1d}".format(key,
                       results_dic[key][0], results_dic[key][1], results_dic[key][3], 
                       results_dic[key][4]))
@@ -196,14 +196,14 @@ def check_classifying_labels_as_dogs(results_dic):
             if results_dic[key][2] == 0:
  
                 # Increments Not-a-Match counter
-                n_notmatch += 1
+                notmatch += 1
                 print("\n{:>30}: \nReal: {:>26}   Classifier: {:>30}  \nPetLabelDog: {:1d}  ClassLabelDog: {:1d}".format(key,
                       results_dic[key][0], results_dic[key][1], results_dic[key][3], 
                       results_dic[key][4]))
 
         # Prints Total Number of Images - expects 40 from pet_images folder
-        print("\n# Total Images",n_match + n_notmatch, "# Matches:",n_match ,
-              "# NOT Matches:",n_notmatch)
+        print("\n# Total Images",match + notmatch, "# Matches:",match ,
+              "# NOT Matches:",notmatch)
 
 
 
@@ -243,7 +243,7 @@ def check_calculating_results(results_dic, results_stats_dic):
     
         # Initialize counters to zero and number of images total
         n_images = len(results_dic)
-        n_pet_dog = 0
+        n_dog = 0
         n_class_cdog = 0
         n_class_cnotd = 0
         n_match_breed = 0
@@ -257,7 +257,7 @@ def check_calculating_results(results_dic, results_stats_dic):
 
                 # isa dog (pet label) & breed match
                 if results_dic[key][3] == 1:
-                    n_pet_dog += 1
+                    n_dog += 1
 
                     # isa dog (classifier label) & breed match
                     if results_dic[key][4] == 1:
@@ -277,7 +277,7 @@ def check_calculating_results(results_dic, results_stats_dic):
                 # NOT - match
                 # isa dog (pet label) 
                 if results_dic[key][3] == 1:
-                    n_pet_dog += 1
+                    n_dog += 1
 
                     # isa dog (classifier label)
                     if results_dic[key][4] == 1:
@@ -292,10 +292,10 @@ def check_calculating_results(results_dic, results_stats_dic):
 
                     
         # calculates statistics based upon counters from above
-        n_pet_notd = n_images - n_pet_dog
-        pct_corr_dog = ( n_class_cdog / n_pet_dog )*100
+        n_pet_notd = n_images - n_dog
+        pct_corr_dog = ( n_class_cdog / n_dog )*100
         pct_corr_notdog = ( n_class_cnotd / n_pet_notd )*100
-        pct_corr_breed = ( n_match_breed / n_pet_dog )*100
+        pct_corr_breed = ( n_match_breed / n_dog )*100
     
         # prints calculated statistics
         print("\n ** Statistics from calculates_results_stats() function:")
@@ -306,5 +306,5 @@ def check_calculating_results(results_dic, results_stats_dic):
               results_stats_dic['pct_correct_breed']))
         print("\n ** Check Statistics - calculated from this function as a check:")
         print("N Images: {:2d}  N Dog Images: {:2d}  N NotDog Images: {:2d} \nPct Corr dog: {:5.1f} Pct Corr NOTdog: {:5.1f}  Pct Corr Breed: {:5.1f}".format(
-              n_images, n_pet_dog, n_pet_notd, pct_corr_dog, pct_corr_notdog,
+              n_images, n_dog, n_pet_notd, pct_corr_dog, pct_corr_notdog,
               pct_corr_breed))
